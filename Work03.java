@@ -168,13 +168,10 @@ public class Work03 {
         
         long start_time = System.currentTimeMillis();
         for(int i = num - 1; i > 0 ; i--)
-            for(int j = 0; j < i; j++) {
-                if(arr[j] > arr[j+1]) {
-                    int tmp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = tmp;
-                }
-            }
+            for(int j = 0; j < i; j++)
+                if(arr[j] > arr[j+1])
+                    swap(j, j + 1, arr);
+        
         long end_time = System.currentTimeMillis();
         return (end_time - start_time)/1000.0;
         
@@ -195,9 +192,7 @@ public class Work03 {
                     result = j;
                 }
             }
-            int tmp = arr[i];
-            arr[i] = arr[result];
-            arr[result] = tmp;
+            swap(i, result, arr);
         }
         long end_time = System.currentTimeMillis();
         return (end_time - start_time)/1000.0;

@@ -7,10 +7,7 @@ public class Work03 {
     
     public static void main(String[] args) {
         
-        int [] data = new int[3];
-        data[0] = 1000;
-        data[1] = 10000;
-        data[2] = 100000;
+        int [] data = { 1000, 10000, 100000 };
         double result = 0;
         
         System.out.print("\t");
@@ -87,10 +84,6 @@ public class Work03 {
         System.out.print("Quick1\t");    // quick1_Sort();
         for(int i = 0; i < 3; i++) {
             result = 0;
-            if(i == 2) {
-                System.out.print("\t\tError\t\tError");
-                break;
-            }
             for(int j = 0; j < 10; j++) {
                 Make_Array_Random(data[i]);
                 long start_time = System.currentTimeMillis();
@@ -99,6 +92,10 @@ public class Work03 {
                 result += (end_time - start_time)/1000.0;
             }
             System.out.print("\t\t" + String.format("%.3f", (result/10)));
+            if(i == 2) {
+                System.out.print("\t\tError\t\tError");
+                break;
+            }
             Make_Array_Reverse(data[i]);
             long start_time = System.currentTimeMillis();
             quick1_Sort(0, data[i] - 1, arr_Reverse);
